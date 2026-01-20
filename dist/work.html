@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css">
     <link rel="stylesheet" href="css/main.css">
-    <title>Welcome To My Portfolio</title>
+    <title>View My Work</title>
 </head>
-<body id="bg-img">
+<body>
     <header>
         <div class="menu-btn">
             <div class="btn-line"></div>
@@ -20,7 +20,7 @@
                 <div class="portrait"></div>
             </div>
             <ul class="menu-nav">
-                <li class="nav-item current">
+                <li class="nav-item">
                     <a href="index.html" class="nav-link">
                         Home
                     </a>
@@ -30,7 +30,7 @@
                         About Me
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item current">
                     <a href="work.html" class="nav-link">
                         My Work
                     </a>
@@ -44,25 +44,31 @@
         </nav>
     </header>
     
-    <main id="home">
+    <main id="work">
         <h1 class="lg-heading">
-            Agustin <span class="text-secondary">Baudot</span>
+            My <span class="text-secondary">Work</span>
         </h1>
         <h2 class="sm-heading">
-            Gamedev, Programmer & Software Architect
+            Check out some of my projects...
         </h2>
-        <div class="icons">
-            <a href="#!">
-                <i class="fab fa-linkedin fa-2x"></i>
-            </a>
-            <a href="#!">
-                <i class="fab fa-github fa-2x"></i>
-            </a>
-            <a href="#!">
-                <i class="fab fa-itch-io fa-2x"></i>
-            </a>
+        <div class="projects">
+            <div class="item">
+                <a href="#!">
+                    <img src="img/projects/project.jpg" alt="Project">
+                </a>
+                <a href="#" class="btn-light">
+                    <i class="fas fa-eye"></i> Project
+                </a>
+                <a href="#" class="btn-dark">
+                    <i class="fab fa-github"></i> Github
+                </a>
+            </div>
         </div>
     </main>
+
+    <footer id="main-footer">
+        Copyright &copy; 2026
+    </footer>
 
     <script src="js/main.js"></script>
 </body>
