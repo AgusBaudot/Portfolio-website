@@ -1,13 +1,16 @@
-@import 'config';
-@import 'menu';
+@use 'config';
+@use 'menu';
+@use 'sass:color';
+
+$lighten-amount: 2%;
 
 * {
     box-sizing: border-box;
 }
 
 body{
-    @include background;
-    background: $primary-color;
+    @include config.background;
+    background: config.$primary-color;
     color: #fff;
     height: 100%;
     margin: 0;
@@ -27,7 +30,7 @@ h1, h2, h3 {
     &.sm-heading {
         margin-bottom: 2rem;
         padding: 0.2rem 1rem;
-        background: rgba(lighten($primary-color, 2), 0.5);
+        background: rgba(color.scale(config.$primary-color, $lightness: $lighten-amount), 0.5);
     }
 }
 
@@ -43,7 +46,7 @@ header {
 }
 
 .text-secondary {
-    color: $secondary-color;
+    color: config.$secondary-color;
 }
 
 main {
@@ -57,8 +60,8 @@ main {
             padding: 0.4rem;
 
             &:hover {
-                color: $secondary-color;
-                @include easeOut;
+                color: config.$secondary-color;
+                @include config.easeOut;
             }
         }
     }
