@@ -123,6 +123,39 @@ main {
     }
 }
 
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    text-align: left;
+
+    h3 {
+        text-transform: uppercase;
+        margin: 1rem 0rem;
+        color: config.$secondary-color;
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .tag {
+        background: color.scale(config.$primary-color, $lightness: 10%);
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+
+        &:hover {
+            border-color: config.$secondary-color;
+            transform: translateY(-2px);
+        }
+    }
+}
+
 // Work/Projects
 .projects {
     display: grid;
@@ -131,6 +164,8 @@ main {
 
     img {
         width: 100%;
+        height: 350px;
+        object-fit: cover;
         border: 3px config.set-text-color(config.$primary-color) solid;
 
         &:hover {

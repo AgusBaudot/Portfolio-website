@@ -5,6 +5,10 @@
     @include config.mediaXl {
         .projects {
             grid-template-columns: repeat(4, 1fr);
+
+            img {
+                height: 350px;
+            }
         }    
     }
     
@@ -12,6 +16,10 @@
     @include config.mediaLg {
         .projects {
             grid-template-columns: repeat(3, 1fr);
+            
+            img {
+                height: 250px;
+            }
         }
 
         .boxes {
@@ -72,10 +80,23 @@
 
         .projects {
             grid-template-columns: repeat(2, 1fr);
+
+            img {
+                height: 200px;
+            }
         }
 
         .boxes {
             margin-top: 2rem;
+        }
+
+        .skills-grid {
+            grid-template-columns: 1fr;
+            text-align: center;
+
+            .tags {
+                justify-content: center;
+            }
         }
     }
 
@@ -99,6 +120,15 @@
 
         .boxes {
             margin-top: 2rem;
+        }
+
+        .skills-grid {
+            grid-template-columns: 1fr;
+            text-align: center;
+
+            .tags {
+                justify-content: center;
+            }
         }
     }
 }
