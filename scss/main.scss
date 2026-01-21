@@ -26,10 +26,15 @@ h1, h2, h3 {
         font-size: 6rem;
     }
 
+    &.md-heading {
+        font-size: 4rem;
+    }
+
     &.sm-heading {
         margin-bottom: 2rem;
         padding: 0.2rem 1rem;
-        background: rgba(color.scale(config.$primary-color, $lightness: 2%), 0.5);
+        background: rgba(color.scale(config.$primary-color, $lightness: 20%), 0.5);
+        display: inline-block;
     }
 }
 
@@ -50,7 +55,6 @@ header {
 
 main {
     padding: 4rem;
-    // height: 100%;
     min-height: calc(100vh - 60px);
 
     .icons {
@@ -87,6 +91,7 @@ main {
     margin: auto;
     border-radius: 50%;
     border: config.$secondary-color;
+    background: color.scale(config.$primary-color, $lightness: -15%);
     }
 
     .bio {
@@ -108,6 +113,13 @@ main {
         background: color.scale(config.$primary-color, $lightness: 2%);
         padding: 0.5rem;
         border-bottom: config.$secondary-color 5px solid;
+        margin-bottom: 2rem;
+
+        h6 {
+            color: config.$secondary-color;
+            margin-top: 0.5rem;
+            font-weight: 450;
+        }
     }
 }
 
@@ -135,7 +147,7 @@ main {
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
-    margin-top: 1rem;
+    margin-top: 10rem;
 
     div {
         font-size: 2rem;

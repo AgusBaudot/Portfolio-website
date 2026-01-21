@@ -13,6 +13,10 @@
         .projects {
             grid-template-columns: repeat(3, 1fr);
         }
+
+        .boxes {
+            margin-top: 2rem;
+        }
     }
     
     // Tablets & small laptops
@@ -49,7 +53,7 @@
             transform: translate3d(100%, 0, 0);
             
             .portrait {
-                background: url('../img/portrait_small.jpg');
+                background-image: url('../img/portrait_small.jpg');
                 width: 150px;
                 height: 150px;
             }
@@ -69,16 +73,32 @@
         .projects {
             grid-template-columns: repeat(2, 1fr);
         }
+
+        .boxes {
+            margin-top: 2rem;
+        }
     }
 
     // Smartphones
     @include config.mediaSm {
-        main#home h1 {
-            margin-top: 10vh;
+        main {
+            padding: 2rem;
+            #home h1 {
+                margin-top: 10vh;
+            }
+
+            .lg-heading {
+                margin-top: 1rem;
+                font-size: 5rem;
+            }
         }
 
         .projects {
             grid-template-columns: 1fr;
+        }
+
+        .boxes {
+            margin-top: 2rem;
         }
     }
 }

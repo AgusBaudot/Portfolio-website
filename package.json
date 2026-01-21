@@ -6,10 +6,13 @@
   "author": "Agustin Baudot",
   "type": "commonjs",
   "main": "index.js",
+  "homepage": "https://AgusBaudot.github.io/Portfolio-website",
   "scripts": {
-    "sass": "sass --watch scss:dist/css"
+    "sass": "sass --watch scss:dist/css",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "gh-pages": "^6.3.0",
     "sass": "^1.97.2"
   }
 }
