@@ -6,7 +6,7 @@
         .projects {
             grid-template-columns: repeat(4, 1fr);
 
-            img {
+            .item img{
                 height: 350px;
             }
         }    
@@ -17,7 +17,7 @@
         .projects {
             grid-template-columns: repeat(3, 1fr);
             
-            img {
+            .item img{
                 height: 250px;
             }
         }
@@ -81,7 +81,7 @@
         .projects {
             grid-template-columns: repeat(2, 1fr);
 
-            img {
+            .item img{
                 height: 200px;
             }
         }
@@ -116,6 +116,10 @@
 
         .projects {
             grid-template-columns: 1fr;
+
+            .item img {
+                height: 150px;
+            }
         }
 
         .boxes {

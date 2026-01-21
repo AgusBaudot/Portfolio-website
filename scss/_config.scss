@@ -1,6 +1,6 @@
 @use 'sass:color';
 
-$primary-color: #444;
+$primary-color: black;
 $secondary-color: #eece1a;
 $show-home-image: true;
 $home-image: url(../img/background.jpg);
@@ -37,6 +37,14 @@ $background-opacity: 0.9;
         @return #000;
     } @else {
         @return #fff;
+    }
+}
+
+@function smart-scale($color, $amount) {
+    @if (color.channel($color, "lightness", $space:hsl) > 50) {
+        @return color.scale($color, $lightness: -($amount + ($amount * 0.5)));
+    } @else {
+        @return color.scale($color, $lightness: $amount);
     }
 }
 
