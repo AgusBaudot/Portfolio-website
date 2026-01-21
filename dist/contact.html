@@ -52,15 +52,17 @@
             How you can reach me...
         </h2>
         <div class="boxes">
-            <div>
-                <span class="text-secondary">Email:</span> agustin.baudot@gmail.com
+            <div class="contact-box" onclick="copyText('agustin.baudot@gmail.com', this)">
+                <span class="text-secondary">Email:</span>
+                agustin.baudot@gmail.com
+                <span class="tooltip">Click to copy</span>
             </div>
-            <div>
-                <span class="text-secondary">Phone:</span> (+54) 9 11 2737-6378
+            
+            <div class="contact-box" onclick="copyText('+54 9 11 2737-6378', this)">
+                <span class="text-secondary">Phone:</span>
+                (+54) 9 11 2737-6378
+                <span class="tooltip">Click to copy</span>
             </div>
-            <!-- <div>
-                <span class="text-secondary">Adress:</span> Nope!
-            </div> -->
         </div>
     </main>
 
