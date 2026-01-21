@@ -32,3 +32,21 @@ function toggleMenu() {
         showMenu = false;
     }
 }
+
+function copyText(text, element) {
+    navigator.clipboard.writeText(text).then(function() {
+        const tooltip = element.querySelector('.tooltip');
+        const originalText = tooltip.innerText;
+
+        tooltip.innerText = "Copied!";
+        tooltip.style.backgroundColor = "#fff";
+
+        setTimeout(() => {
+            tooltip.innerText = originalText;
+            tooltip.style.backgroundColor = "";
+        }, 600);
+
+    }, function(err) {
+        console.error('Could not copy text: ', err);
+    });
+}
