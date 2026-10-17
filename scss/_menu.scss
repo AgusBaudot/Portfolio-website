@@ -1,7 +1,7 @@
 @use 'config';
 @use 'sass:color';
 
-//Menu Button
+// Menu Button
 .menu-btn {
     position: absolute;
     z-index: 3;
@@ -14,7 +14,7 @@
         width: 28px;
         height: 3px;
         margin: 0 0 5px 0;
-        background: config.set-text-color(config.$primary-color);
+        background: var(--text-color);
         @include config.easeOut;
     }
 
@@ -23,17 +23,14 @@
         transform: rotate(180deg);
 
         .btn-line {
-            // Line 1 - Rotate
             &:nth-child(1) {
                 transform: rotate(45deg) translate(5px, 5px);
             }
             
-            // Line 2 - Hide
             &:nth-child(2) {
                 opacity: 0;
             }
 
-            //Line 3 - Rotate
             &:nth-child(3) {
                 transform: rotate(-45deg) translate(7px, -6px);
             }
@@ -41,7 +38,7 @@
     }
 }
 
-//Menu overlay
+// Menu overlay
 .menu {
     position: fixed;
     top: 0;
@@ -65,44 +62,39 @@
     }
 
     &-nav {
-        margin : 0;
+        margin: 0;
         padding: 0;
-        background: color.change(color.scale(config.$primary-color, $lightness: -30%), $alpha: 0.9);
+        background: var(--menu-nav-bg);
         list-style: none;
         transform: translate3d(0, -100%, 0);
         @include config.easeOut;
 
         &.show {
-            // Slide in from top
             transform: translate3d(0, 0, 0);
         }
     }
     
     // Branding side
     &-branding {
-        background: color.change(config.$primary-color, $alpha: 0.9);
+        background: var(--menu-brand-bg);
         transform: translate3d(0, 100%, 0);
         @include config.easeOut;
         
         &.show {
-            // Slide in from bottom
             transform: translate3d(0, 0, 0);
         }
-        
     }
 
     .portrait {
         width: 250px;
         height: 250px;
-        
-        background-color: color.scale(config.$primary-color, $lightness: -15%);
+        background-color: var(--bg-15);
         background-image: url('../img/portrait.jpg');
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
-
         border-radius: 50%;
-        border: solid 3px config.$secondary-color;
+        border: solid 3px var(--secondary-color);
     }
     
     .nav-item {
@@ -110,12 +102,11 @@
         @include config.easeOut;
         
         &.show {
-            // Slide in from right
             transform: translate3d(0, 0, 0);
         }
 
         &.current > a {
-            color: config.$secondary-color;
+            color: var(--secondary-color);
         }
     }
 
@@ -126,12 +117,12 @@
         text-transform: uppercase;
         padding: 1rem 0;
         font-weight: 600;
-        color: config.set-text-color(config.$primary-color);
+        color: var(--text-color);
         text-decoration: none;
         @include config.easeOut;
 
         &:hover {
-            color: config.$secondary-color;
+            color: var(--secondary-color);
         }
     }
 }

@@ -1,12 +1,9 @@
-// Select DOM Items (Document Object Module = all UI structure)
-
 const menuBtn = document.querySelector('.menu-btn');
 const menu = document.querySelector('.menu');
 const menuNav = document.querySelector('.menu-nav');
 const menuBranding = document.querySelector('.menu-branding');
 const navItems = document.querySelectorAll('.nav-item');
 
-// Set initial state of menu (the overlay of the menu)
 let showMenu = false;
 
 menuBtn.addEventListener('click', toggleMenu);
@@ -19,7 +16,6 @@ function toggleMenu() {
         menuBranding.classList.add('show');
         navItems.forEach(item => item.classList.add('show'));
 
-        // Set menu state
         showMenu = true;
     } else {
         menuBtn.classList.remove('close');
@@ -28,7 +24,6 @@ function toggleMenu() {
         menuBranding.classList.remove('show');
         navItems.forEach(item => item.classList.remove('show'));
 
-        // Set menu state
         showMenu = false;
     }
 }
@@ -36,17 +31,48 @@ function toggleMenu() {
 function copyText(text, element) {
     navigator.clipboard.writeText(text).then(function() {
         const tooltip = element.querySelector('.tooltip');
-        const originalText = tooltip.innerText;
 
         tooltip.innerText = "Copied!";
         tooltip.style.backgroundColor = "#fff";
 
         setTimeout(() => {
-            tooltip.innerText = originalText;
+            tooltip.innerText = "Click to copy";
             tooltip.style.backgroundColor = "";
         }, 600);
 
     }, function(err) {
         console.error('Could not copy text: ', err);
+    });
+}
+
+// Theme switcher (w persistence)
+const themeBtn = document.querySelector('#theme-toggle');
+
+// Check if the user already chose Light Mode on a previous page first
+if (localStorage.getItem('theme') === 'light') {
+    document.body.classList.add('light-mode');
+}
+
+if (themeBtn) {
+    themeBtn.addEventListener('click', (e) => {
+        const switchTheme = () => {
+            document.body.classList.toggle('light-mode');
+            const isLight = document.body.classList.contains('light-mode');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        };
+
+        if (!document.startViewTransition) {
+            switchTheme();
+            return;
+        }
+
+        const rect = themeBtn.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        document.documentElement.style.setProperty('--click-x', `${centerX}px`);
+        document.documentElement.style.setProperty('--click-y', `${centerY}px`);
+
+        document.startViewTransition(() => switchTheme());
     });
 }

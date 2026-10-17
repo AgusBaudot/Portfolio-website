@@ -1,6 +1,7 @@
 @use 'sass:color';
 
-$primary-color: black;
+$dark-primary: black;
+$light-primary: #f4f4f4;
 $secondary-color: #eece1a;
 $show-home-image: true;
 $home-image: url(../img/background.jpg);
@@ -25,7 +26,8 @@ $background-opacity: 0.85;
                 width: 100%;
                 height: 100%;
                 z-index: -1;
-                background: rgba($primary-color, $background-opacity);
+                background: var(--bg-overlay);
+                transition: background 0.3s ease;
             }
         }
     }
@@ -48,9 +50,53 @@ $background-opacity: 0.85;
     }
 }
 
-//Media query mixins
+// Dynamic theme CSS variables
+:root {
+    --primary-color: #{$dark-primary};
+    --secondary-color: #{$secondary-color};
+    --text-color: #{set-text-color($dark-primary)};
+    --bg-overlay: #{rgba($dark-primary, $background-opacity)};
+    
+    --bg-5: #{smart-scale($dark-primary, 5%)};
+    --bg-10: #{smart-scale($dark-primary, 10%)};
+    --bg-15: #{smart-scale($dark-primary, 15%)};
+    --bg-50: #{smart-scale($dark-primary, 50%)};
+    --bg-60: #{smart-scale($dark-primary, 15%)};
+    --heading-bg: #{rgba(smart-scale($dark-primary, 20%), 0.5)};
+
+    --menu-nav-bg: #{color.change(smart-scale($dark-primary, 5%), $alpha: 0.95)};
+    --menu-brand-bg: #{color.change($dark-primary, $alpha: 0.95)};
+    
+    --card-border: #444444;
+    --card-shadow: none;
+    --card-hover-shadow: 0 8px 28px rgba(238, 206, 26, 0.3);
+    --muted-text: #cccccc;
+}
+
+body.light-mode {
+    --primary-color: #{$light-primary};
+    --secondary-color: #b59800;
+    --text-color: #{set-text-color($light-primary)};
+    --bg-overlay: #{rgba($light-primary, $background-opacity)};
+    
+    --bg-5: #ffffff;
+    --bg-10: #ffffff;
+    --bg-15: #{smart-scale($light-primary, 10%)};
+    --bg-50: #{smart-scale($light-primary, 25%)};
+    --bg-60: #dcdcdc;
+    --heading-bg: #{rgba(smart-scale($light-primary, 15%), 0.6)};
+
+    --menu-nav-bg: #{color.change(smart-scale($light-primary, 10%), $alpha: 0.95)};
+    --menu-brand-bg: #{color.change($light-primary, $alpha: 0.95)};
+
+    --card-border: #b8b8b8;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --card-hover-shadow: 0 8px 24px rgba(181, 152, 0, 0.35);
+    --muted-text: #555555;
+}
+
+// Media query mixins
 @mixin mediaSm {
-    // Any css we put here will only apply if the screen matches the requirement.
     @media screen and (max-width: 500px) {
         @content;
     }

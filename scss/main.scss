@@ -7,17 +7,18 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     @include config.background;
-    background: config.$primary-color;
-    color: config.set-text-color(config.$primary-color);
+    background: var(--primary-color);
+    color: var(--text-color);
     height: 100%;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.5;
+    // transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-//Headings
+// Headings
 h1, h2, h3 {
     margin: 0;
     font-weight: 400;
@@ -33,28 +34,52 @@ h1, h2, h3 {
     &.sm-heading {
         margin-bottom: 2rem;
         padding: 0.2rem 1rem;
-        background: rgba(config.smart-scale(config.$primary-color, 20%), 0.5);
+        background: var(--heading-bg);
         display: inline-block;
     }
 }
 
 a {
-    color: config.set-text-color(config.$primary-color);
+    color: var(--text-color);
     text-decoration: none;
 }
 
 header {
     position: fixed;
+    top: 0;
+    left: 0;
     z-index: 2;
     width: 100%;
 }
 
+.theme-btn {
+    position: absolute;
+    z-index: 3;
+    right: 85px;
+    top: 33px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    line-height: 1;
+    color: var(--text-color);
+    font-size: 1.4rem;
+    cursor: pointer;
+    //Add feedback to button hover. Left out for cohesiveness with burger UI and general feel of the page.
+
+    // @include config.easeOut;
+
+    // &:hover {
+    //     color: var(--secondary-color);
+    //     transform: scale(1.1);
+    // }
+}
+
 .text-secondary {
-    color: config.$secondary-color;
+    color: var(--secondary-color);
 }
 
 main {
-    padding: 4rem;
+    padding: 4rem 8.5rem 4rem 4rem;
     min-height: calc(100vh - 60px);
 
     .icons {
@@ -64,7 +89,7 @@ main {
             padding: 0.4rem;
 
             &:hover {
-                color: config.$secondary-color;
+                color: var(--secondary-color);
                 @include config.easeOut;
             }
         }
@@ -87,11 +112,11 @@ main {
     grid-template-columns: repeat(3, 1fr);
 
     .bio-image {
-    grid-area: bioimage;
-    margin: auto;
-    border-radius: 50%;
-    border: config.$secondary-color;
-    background: config.smart-scale(config.$primary-color, 15%);
+        grid-area: bioimage;
+        margin: auto;
+        border-radius: 50%;
+        border: 3px solid var(--secondary-color);
+        background: var(--bg-15);
     }
 
     .bio {
@@ -110,13 +135,13 @@ main {
     }
 
     .job {
-        background: config.smart-scale(config.$primary-color, 5%);
+        background: var(--bg-5);
         padding: 0.5rem;
-        border-bottom: config.$secondary-color 5px solid;
+        border-bottom: var(--secondary-color) 5px solid;
         margin-bottom: 2rem;
 
         h6 {
-            color: config.$secondary-color;
+            color: var(--secondary-color);
             margin-top: 0.5rem;
             font-weight: 450;
         }
@@ -132,7 +157,7 @@ main {
     h3 {
         text-transform: uppercase;
         margin: 1rem 0rem;
-        color: config.$secondary-color;
+        color: var(--secondary-color);
     }
 
     .tags {
@@ -142,7 +167,7 @@ main {
     }
 
     .tag {
-        background: config.smart-scale(config.$primary-color, 10%);
+        background: var(--bg-10);
         padding: 0.5rem 1rem;
         border-radius: 5px;
         font-size: 0.9rem;
@@ -150,7 +175,7 @@ main {
         border: 1px solid transparent;
 
         &:hover {
-            border-color: config.$secondary-color;
+            border-color: var(--secondary-color);
             transform: translateY(-2px);
         }
     }
@@ -159,20 +184,22 @@ main {
 // Work/Projects
 .projects {
     display: grid;
-    grid-gap: 0.7rem;
+    grid-gap: 1.2rem;
     grid-template-columns: repeat(3, 1fr);
 
     .item {
-        background: config.smart-scale(config.$primary-color, 10%);
-        border: 1px solid #444;
+        background: var(--bg-10);
+        border: 2px solid var(--card-border);
         border-radius: 20px;
         overflow: hidden;
+        box-shadow: var(--card-shadow);
         transition: all 0.3s ease;
         display: flex;
         flex-direction: column;
 
         &:hover {
-            border-color: config.$secondary-color;
+            border-color: var(--secondary-color);
+            box-shadow: var(--card-hover-shadow);
             transform: translateY(-5px);
         }
 
@@ -180,7 +207,7 @@ main {
            width: 100%;
            height: 350px;
            object-fit: cover;
-           border-bottom: 10px solid #444;
+           border-bottom: 10px solid var(--card-border);
         }
 
         .card-body {
@@ -195,7 +222,7 @@ main {
 
             .tech-stack {
                 font-size: 0.9rem;
-                color: #ccc;
+                color: var(--muted-text);
                 margin-bottom: 1rem;
             }
         }
@@ -207,16 +234,16 @@ main {
                 flex: 1;
                 text-align: center;
                 padding: 0.8rem;
-                border-top: 5px solid #444;
+                border-top: 5px solid var(--card-border);
                 transition: background-color 0.3s ease;
 
                 &:hover {
-                    background: config.$secondary-color;
+                    background: var(--secondary-color);
                     color: #000;
                 }
 
                 &:first-child {
-                    border-right: 5px solid #444;
+                    border-right: 5px solid var(--card-border);
                 }
             }
         }
@@ -233,14 +260,14 @@ main {
 
     div {
         font-size: 2rem;
-        border: 3px config.set-text-color(config.$primary-color) solid;
+        border: 3px var(--text-color) solid;
         padding: 1.5rem 2.5rem;
         margin-bottom: 3rem;
         @include config.easeOut;
 
         &:hover {
             padding: 0.5rem 1.5rem;
-            background: config.$secondary-color;
+            background: var(--secondary-color);
             color: config.set-text-color(config.$secondary-color);
             span {
                 color: config.set-text-color(config.$secondary-color);
@@ -258,7 +285,7 @@ main {
             left: 50%;
             transform: translateX(-50%);
 
-            background-color: config.$secondary-color;
+            background-color: var(--secondary-color);
             color: #000;
             padding: 5px 10px;
             border-radius: 5px;
@@ -268,7 +295,7 @@ main {
 
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.3s ease transform 0.3s ease;
+            transition: opacity 0.3s ease, transform 0.3s ease;
 
             &::after {
                 content: '';
@@ -278,7 +305,7 @@ main {
                 margin-left: -5px;
                 border-width: 5px;
                 border-style: solid;
-                border-color: config.$secondary-color transparent transparent transparent;
+                border-color: var(--secondary-color) transparent transparent transparent;
             }
         }
 
@@ -303,29 +330,65 @@ main {
     margin-bottom: 0.3rem;
     
     &:hover {
-        background: config.$secondary-color;
+        background: var(--secondary-color);
         color: config.set-text-color(config.$secondary-color);
     }
 }
 
 .btn-dark {
     @extend .btn;
-    background: config.smart-scale(config.$primary-color, 50%);
+    background: var(--bg-50);
     color: #fff;
 }
 
 .btn-light {
     @extend .btn;
-    background: config.smart-scale(config.$primary-color, 50%);
+    background: var(--bg-50);
     color: #333;
 }
 
 #main-footer {
     text-align: center;
     padding: 1rem;
-    background: config.smart-scale(config.$primary-color, 60%);
-    color: config.set-text-color(config.$primary-color);
+    background: var(--bg-60);
+    color: var(--text-color);
     height: 60px;
+}
+
+@property --ripple-progress {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 0%;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+    // 20% soft gradient feather at the leading edge of the circle
+    -webkit-mask-image: radial-gradient(
+        circle farthest-corner at var(--click-x, 95%) var(--click-y, 35px),
+        #000 calc(var(--ripple-progress) - 20%),
+        transparent var(--ripple-progress)
+    );
+    mask-image: radial-gradient(
+        circle farthest-corner at var(--click-x, 95%) var(--click-y, 35px),
+        #000 calc(var(--ripple-progress) - 20%),
+        transparent var(--ripple-progress)
+    );
+    animation: gradient-ripple 1.15s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes gradient-ripple {
+    0% {
+        --ripple-progress: 0%;
+    }
+    100% {
+        --ripple-progress: 125%;
+    }
 }
 
 @include mobile.trigger;
