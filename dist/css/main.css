@@ -341,7 +341,10 @@ main#home h1 {
 }
 .projects .item img {
   width: 100%;
-  height: 350px;
+  aspect-ratio: 1/1;
+  height: auto;
+  box-sizing: content-box;
+  display: block;
   -o-object-fit: cover;
      object-fit: cover;
   border-bottom: 10px solid var(--card-border);
@@ -498,16 +501,10 @@ main#home h1 {
   .projects {
     grid-template-columns: repeat(4, 1fr);
   }
-  .projects .item img {
-    height: 350px;
-  }
 }
 @media screen and (min-width: 769px) and (max-width: 1170px) {
   .projects {
     grid-template-columns: repeat(3, 1fr);
-  }
-  .projects .item img {
-    height: 250px;
   }
   .boxes {
     margin-top: 2rem;
@@ -553,9 +550,6 @@ main#home h1 {
   .projects {
     grid-template-columns: repeat(2, 1fr);
   }
-  .projects .item img {
-    height: 200px;
-  }
   .boxes {
     margin-top: 2rem;
   }
@@ -583,9 +577,6 @@ main#home h1 {
   }
   .projects {
     grid-template-columns: 1fr;
-  }
-  .projects .item img {
-    height: 150px;
   }
   .boxes {
     margin-top: 2rem;

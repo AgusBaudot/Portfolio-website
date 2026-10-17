@@ -5,10 +5,6 @@
     @include config.mediaXl {
         .projects {
             grid-template-columns: repeat(4, 1fr);
-
-            .item img{
-                height: 350px;
-            }
         }    
     }
     
@@ -16,10 +12,6 @@
     @include config.mediaLg {
         .projects {
             grid-template-columns: repeat(3, 1fr);
-            
-            .item img{
-                height: 250px;
-            }
         }
 
         .boxes {
@@ -80,10 +72,6 @@
 
         .projects {
             grid-template-columns: repeat(2, 1fr);
-
-            .item img{
-                height: 200px;
-            }
         }
 
         .boxes {
@@ -121,10 +109,6 @@
 
         .projects {
             grid-template-columns: 1fr;
-
-            .item img {
-                height: 150px;
-            }
         }
 
         .boxes {

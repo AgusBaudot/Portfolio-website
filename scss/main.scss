@@ -205,7 +205,10 @@ main {
 
         img {
            width: 100%;
-           height: 350px;
+           aspect-ratio: 1 / 1;
+           height: auto;
+           box-sizing: content-box;
+           display: block;
            object-fit: cover;
            border-bottom: 10px solid var(--card-border);
         }
