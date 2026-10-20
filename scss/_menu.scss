@@ -16,6 +16,10 @@
         margin: 0 0 5px 0;
         background: var(--text-color);
         @include config.easeOut;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 
     // Rotate into 'X' with menu lines
@@ -24,7 +28,7 @@
 
         .btn-line {
             &:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
+                transform: translateY(8px) rotate(45deg);
             }
             
             &:nth-child(2) {
@@ -32,7 +36,7 @@
             }
 
             &:nth-child(3) {
-                transform: rotate(-45deg) translate(7px, -6px);
+                transform: translateY(-8px) rotate(-45deg);
             }
         }
     }
