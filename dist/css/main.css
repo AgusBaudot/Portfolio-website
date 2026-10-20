@@ -514,10 +514,15 @@ main#home h1 {
   main {
     align-items: center;
     text-align: center;
+    padding: 4rem 5rem;
   }
   main .lg-heading {
     line-height: 1;
     margin-bottom: 1rem;
+  }
+  .theme-btn {
+    right: 38px;
+    top: 75px;
   }
   ul.menu-nav,
   div.menu-branding {
