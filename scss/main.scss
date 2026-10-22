@@ -213,6 +213,32 @@ main {
            border-bottom: 10px solid var(--card-border);
         }
 
+        .project-meta,
+        .project-desc {
+            margin: 0.5rem 0 0;
+        }
+        
+        .project-meta {
+            font-size: 0.85rem;
+            opacity: 0.85;
+        }
+        
+        .project-desc {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .status {
+            display: inline-block;
+            margin-right: 0.2rem;
+            padding: 0.1rem 0.55rem;
+            border: 1px solid currentColor;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            line-height: 1.4;
+            white-space: nowrap;
+        }
+
         .card-body {
             padding: 1rem;
             flex-grow: 1;
@@ -232,12 +258,14 @@ main {
 
         .btn-group {
             display: flex;
+            width: 100%;
+            border-top: 5px solid var(--card-border);
 
             a {
                 flex: 1;
                 text-align: center;
                 padding: 0.8rem;
-                border-top: 5px solid var(--card-border);
+                border-right: none;
                 transition: background-color 0.3s ease;
 
                 &:hover {
@@ -245,8 +273,8 @@ main {
                     color: #000;
                 }
 
-                &:first-child {
-                    border-right: 5px solid var(--card-border);
+                & + a {
+                    border-left: 5px solid var(--card-border);
                 }
             }
         }

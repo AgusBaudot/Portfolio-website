@@ -352,6 +352,28 @@ main#home h1 {
      object-fit: cover;
   border-bottom: 10px solid var(--card-border);
 }
+.projects .item .project-meta,
+.projects .item .project-desc {
+  margin: 0.5rem 0 0;
+}
+.projects .item .project-meta {
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+.projects .item .project-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.projects .item .status {
+  display: inline-block;
+  margin-right: 0.2rem;
+  padding: 0.1rem 0.55rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  white-space: nowrap;
+}
 .projects .item .card-body {
   padding: 1rem;
   flex-grow: 1;
@@ -368,20 +390,22 @@ main#home h1 {
 }
 .projects .item .btn-group {
   display: flex;
+  width: 100%;
+  border-top: 5px solid var(--card-border);
 }
 .projects .item .btn-group a {
   flex: 1;
   text-align: center;
   padding: 0.8rem;
-  border-top: 5px solid var(--card-border);
+  border-right: none;
   transition: background-color 0.3s ease;
 }
 .projects .item .btn-group a:hover {
   background: var(--secondary-color);
   color: #000;
 }
-.projects .item .btn-group a:first-child {
-  border-right: 5px solid var(--card-border);
+.projects .item .btn-group a + a {
+  border-left: 5px solid var(--card-border);
 }
 
 .boxes {
